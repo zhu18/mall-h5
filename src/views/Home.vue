@@ -114,7 +114,7 @@
       </Tabs>
     </div>
     <!-- 底部导航  -->
-    <Tabbar v-model="active" fixed>
+    <Tabbar v-model="active" fixed class='foot'>
       <TabbarItem icon="home-o">标签</TabbarItem>
       <TabbarItem icon="search">标签</TabbarItem>
       <TabbarItem icon="friends-o">标签</TabbarItem>
@@ -222,8 +222,14 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-@import "../assets/css/mixin.scss";
+
+<style lang="scss" >
+@import "../assets/css/index.scss";
+
+.foot{
+  background: #FFFFFF;
+  box-shadow: 0 -1px 14px 0 rgba(6,38,83,0.17);
+}
 .home {
   display: -webkit-box;
   display: -webkit-flex;
@@ -295,7 +301,7 @@ export default {
     height: 122px;
     // overflow: hidden;
     // background:red;
-  
+ 
     img {
       max-width: 100%;
       height: 122px;
@@ -410,6 +416,7 @@ export default {
         align-items: center;
         justify-content: space-between;
         padding: 0 5px;
+        font-style: normal;
         .discount-price {
           font-size: 11px;
           color: #ff4444;
@@ -493,6 +500,7 @@ export default {
         display:flex;
         justify-content:space-between;
         padding:0 5px;
+        font-style: normal;
         .discount-price{
           font-size: 14px;
           color: #F44336;

@@ -1,0 +1,13 @@
+// swipe
+  .van-swipe__indicator{
+    width: 7px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #fff;
+    opacity:.4;
+  }
+
+  .van-swipe__indicator--active{
+    width:10px;
+    opacity:1;
+  }
