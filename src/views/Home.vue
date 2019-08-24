@@ -550,6 +550,7 @@ export default {
         border-radius: 10px;
         box-sizing: border-box;
         margin-bottom:7px;
+        overflow: hidden;
         img {
           width: 100%;
           height: 100%;
