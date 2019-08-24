@@ -4,7 +4,8 @@
     <!-- 头部搜索 -->
     <div
       class="search-bar"
-      :style="{ backgroundImage:  'linear-gradient(195deg,'+curentBannerColor[0]+' 4%, '+curentBannerColor[1]+' 100%)' }"
+      :style="serchStyle"
+      ref="search"
     >
       <form action="/">
         <Search
@@ -24,13 +25,12 @@
 
     <!-- banner -->
     <div
+      @scroll="onScroll"
       class="banner-box"
-      :style="{ backgroundImage:  'linear-gradient(195deg,'+curentBannerColor[0]+' 4%, '+curentBannerColor[1]+' 100%)' }"
+      :style="{ backgroundImage: 'linear-gradient(195deg,'+curentBannerColor[0]+' 4%, '+curentBannerColor[1]+' 100%)' }"
     >
-      <Swipe :autoplay="30000" class="banner-swiper" @change="onSwiperChange">
-        <SwipeItem v-for="(image, index) in banners" :key="index">
-          <img :src="image.img" />
-        </SwipeItem>
+      <Swipe :autoplay="3000" class="banner-swiper" @change="onSwiperChange" ref='swiper' >
+        <SwipeItem v-for="(image, index) in banners" :key="index"><img :src="image.img" :style='swiperImgStyle' /></SwipeItem>
       </Swipe>
     </div>
     <!-- nav-bar -->
@@ -87,8 +87,8 @@
       </div>
     </div>
     <!-- 商品列表 -->
-    <div class="shop-list">
-      <Tabs v-model="active" sticky :offset-top="62">
+    <div class="shop-list" >
+      <Tabs v-model="active" sticky :offset-top="searchHeight">
         <Tab v-for="(item,index) in splist" :title="item" :key="index">
           <div class="list-body">
             <List
@@ -178,6 +178,8 @@ export default {
   name: "home",
   data() {
     return {
+      scrollHeight:0,
+      searchHeight:0,
       active: 0,
       active2: 0,
       searchValue: "",
@@ -201,6 +203,10 @@ export default {
         {
           img: banner2,
           colors: ["#2B5AAF", "#418AE0"]
+        },
+        {
+          img: banner1,
+          colors: ["#2B5AAF", "#418AE0"]
         }
       ],
       list: [],
@@ -213,6 +219,20 @@ export default {
     curentBannerColor: function() {
       // `this` 指向 vm 实例
       return this.banners[this.bannerIndex].colors;
+    },
+    serchStyle:function(){
+      if (this.scrollHeight>0) {
+        return {backgroundImage:  'linear-gradient(195deg,'+this.curentBannerColor[0]+' 4%, '+this.curentBannerColor[1]+' 100%)' }
+      }else{
+        return {}
+      }
+    },
+    swiperImgStyle:function(){
+      if (this.$refs.swiper) {
+        return {width:this.$refs.swiper.$el.offsetWidth+'px'}
+      }else{
+        return {}
+      }
     }
   },
   methods: {
@@ -243,7 +263,18 @@ export default {
       if (this.searchValue == "") {
         this.focusflag = false;
       }
-    }
+    },
+    onScroll(){
+      console.log(e);
+    },
+  },
+   created(){
+   },
+   mounted() {
+      console.log(this.$refs.swiper.$el.offsetWidth);
+
+     this.searchHeight=this.$refs.search.offsetHeight
+     window.addEventListener('scroll',()=>{this.scrollHeight=window.scrollY})
   },
   components: {
     Tabbar,
@@ -271,7 +302,7 @@ export default {
   right: 0;
   margin: 0;
   flex-direction: column;
-  overflow-y: auto;
+  // overflow-y: auto;
   padding-bottom: 50px;
 }
 
@@ -517,7 +548,7 @@ export default {
       .name {
         font-size: 12px;
         color: #323232;
-        text-align: justify;
+        text-align: left;
         line-height: 17px;
         height:34px;
         overflow: hidden;
