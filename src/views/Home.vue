@@ -114,12 +114,47 @@
       </Tabs>
     </div>
     <!-- 底部导航  -->
-    <Tabbar v-model="active" fixed>
-      <TabbarItem icon="home-o">标签</TabbarItem>
-      <TabbarItem icon="search">标签</TabbarItem>
-      <TabbarItem icon="friends-o">标签</TabbarItem>
-      <TabbarItem icon="setting-o">标签</TabbarItem>
-      <TabbarItem icon="setting-o">标签</TabbarItem>
+    <Tabbar v-model="active2" fixed>
+      <TabbarItem>
+        <span class="tabs-text">首页</span>
+        <img
+          slot="icon"
+          slot-scope="props"
+          :src="props.active ? require('../assets/images/demo/home-icon-active@3x.png') : require('../assets/images/demo/home-icon@3x.png')"
+        >
+      </TabbarItem>
+      <TabbarItem>
+        <span class="tabs-text">分类</span>
+        <img
+          slot="icon"
+          slot-scope="props"
+          :src="props.active ? require('../assets/images/demo/fl-icon-active@3x.png') : require('../assets/images/demo/fl-icon@3x.png')"
+        >
+      </TabbarItem>
+      <TabbarItem>
+        <span class="tabs-text">活动</span>
+        <img
+          slot="icon"
+          slot-scope="props"
+          :src="props.active ? require('../assets/images/demo/hd-icon-active@3x.png') : require('../assets/images/demo/hd-icon@3x.png')"
+        >
+      </TabbarItem>
+      <TabbarItem>
+        <span class="tabs-text">购物车</span>
+        <img
+          slot="icon"
+          slot-scope="props"
+          :src="props.active ? require('../assets/images/demo/bus-icon-active@3x.png') : require('../assets/images/demo/bus-icon@3x.png')"
+        >
+      </TabbarItem>
+      <TabbarItem>
+        <span class="tabs-text">我的</span>
+        <img
+          slot="icon"
+          slot-scope="props"
+          :src="props.active ? require('../assets/images/demo/my-icon-active@3x.png') : require('../assets/images/demo/my-icon@3x.png')"
+        >
+      </TabbarItem>
     </Tabbar>
     </div>
   </div>
@@ -144,6 +179,7 @@ export default {
   data() {
     return {
       active: 0,
+      active2: 0,
       searchValue: "",
       focusflag: false,
       bannerIndex: 0,
@@ -497,12 +533,14 @@ export default {
           font-size: 14px;
           color: #F44336;
           line-height: 14px;
+          font-style:normal;
         }
         .original-price{
             font-size: 12px;
             color: #909090;
             line-height: 12px;
-          text-decoration: line-through;
+            text-decoration: line-through;
+            font-style:normal;
         }
       }
       .img {
@@ -521,6 +559,16 @@ export default {
     }
   }
 }
+.van-tabbar-item--active .tabs-text{
+  color: #FC6457;
+}
+.tabs-text{
+  font-size: 10px;
+  color: #323232;
+  text-align: center;
+  line-height: 10px;
+}
+
 </style>
 <style>
 .van-field__control::placeholder {
