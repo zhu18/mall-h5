@@ -99,7 +99,7 @@
                 class="list-body-c"
               >
             <div class="sp-item" v-for="i in list" :key="i">
-              <span class="img van-hairline--surround">
+              <span class="img">
                 <img src="../assets/images/demo/sp2.jpg" alt class />
               </span>
               <span class="name">Apple iMac 21.5英寸一体机四核 Core i5 处理器</span>
@@ -560,14 +560,21 @@ export default {
   }
 }
 .shop-list {
-  padding: 0 12px;
-  .list-body-c ,
+  .list-body-c{
+     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+  }
   .list-body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width:100%;
+    padding: 0 12px;
+    box-sizing:border-box;
     .sp-item {
       width: calc(50% - 5px);
       display: flex;
