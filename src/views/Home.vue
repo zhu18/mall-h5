@@ -358,7 +358,7 @@ export default {
     height:0;
     border-right:50vw solid transparent;
     border-left:50vw solid transparent;
-    border-bottom:50px solid #fff;
+    border-bottom:30px solid #fff;
     position:absolute;
     left:0px;
     bottom:0px;
