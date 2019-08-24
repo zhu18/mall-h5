@@ -30,7 +30,7 @@
       :style="{ backgroundImage: 'linear-gradient(195deg,'+curentBannerColor[0]+' 4%, '+curentBannerColor[1]+' 100%)' }"
     >
       <Swipe :autoplay="3000" class="banner-swiper" @change="onSwiperChange" ref='swiper' >
-        <SwipeItem v-for="(image, index) in banners" :key="index"><img :src="image.img" :style='swiperImgStyle' /></SwipeItem>
+        <SwipeItem v-for="(image, index) in banners" :key="index"><img :src="image.img"  /></SwipeItem>
       </Swipe>
     </div>
     <!-- nav-bar -->
@@ -223,13 +223,6 @@ export default {
     serchStyle:function(){
       if (this.scrollHeight>0) {
         return {backgroundImage:  'linear-gradient(195deg,'+this.curentBannerColor[0]+' 4%, '+this.curentBannerColor[1]+' 100%)' }
-      }else{
-        return {}
-      }
-    },
-    swiperImgStyle:function(){
-      if (this.$refs.swiper) {
-        return {width:this.$refs.swiper.$el.offsetWidth+'px'}
       }else{
         return {}
       }
