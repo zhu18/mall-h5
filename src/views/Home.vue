@@ -25,7 +25,6 @@
 
     <!-- banner -->
     <div
-      @scroll="onScroll"
       class="banner-box"
       :style="{ backgroundImage: 'linear-gradient(195deg,'+curentBannerColor[0]+' 4%, '+curentBannerColor[1]+' 100%)' }"
     >
@@ -203,10 +202,6 @@ export default {
         {
           img: banner2,
           colors: ["#2B5AAF", "#418AE0"]
-        },
-        {
-          img: banner1,
-          colors: ["#2B5AAF", "#418AE0"]
         }
       ],
       list: [],
@@ -349,10 +344,25 @@ export default {
   padding: 50px 12px 0 12px;
   transition: all 0.6s;
   transform: rotate3d(0, 0, 0);
+  position:relative;
+  &:after{
+    content:'';
+    display:inline-block;
+    width:0;
+    height:0;
+    border-right:50vw solid transparent;
+    border-left:50vw solid transparent;
+    border-bottom:50px solid #fff;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    z-index:0;
+  }
   .banner-swiper {
     position: relative;
     bottom: -12px;
     height: 122px;
+    z-index:100;
     // overflow: hidden;
     // background:red;
   
