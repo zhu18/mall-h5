@@ -13,6 +13,7 @@
           v-model="searchValue"
           placeholder="请输入搜索关键词"
           shape="round"
+          readonly
           @search="onSearch"
           @focus="onFocus"
           @blur="onBlur"
@@ -28,7 +29,7 @@
       class="banner-box"
       :style="{ backgroundImage: 'linear-gradient(195deg,'+curentBannerColor[0]+' 4%, '+curentBannerColor[1]+' 100%)' }"
     >
-      <Swipe  class="banner-swiper" @change="onSwiperChange" ref='swiper' >
+      <Swipe  autoplay='3000' class="banner-swiper" @change="onSwiperChange" ref='swiper' style="width:100%!important;">
         <SwipeItem v-for="(image, index) in banners" :key="index"><img :src="image.img"  /></SwipeItem>
       </Swipe>
     </div>
@@ -98,7 +99,7 @@
                 class="list-body-c"
               >
             <div class="sp-item" v-for="i in list" :key="i">
-              <span class="img">
+              <span class="img van-hairline--surround">
                 <img src="../assets/images/demo/sp2.jpg" alt class />
               </span>
               <span class="name">Apple iMac 21.5英寸一体机四核 Core i5 处理器</span>
@@ -630,6 +631,7 @@ export default {
   color: #323232;
   text-align: center;
   line-height: 10px;
+  
 }
 
 </style>
@@ -666,5 +668,12 @@ export default {
     }
     .van-swipe-item{
    
+    }
+
+    .van-swipe-item{
+      box-sizing:border-box;
+      border:1px solid transparent;
+      /* background:yellow; */
+     
     }
 </style>
