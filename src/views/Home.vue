@@ -161,7 +161,7 @@
       position="left"
       :style="{ height: '100%',width: '100%'  }"
     >
-    <searchComponent :serchStyle='serchStyle' @out='searchOut'/>
+    <searchComponent  @out='searchOut'/>
     </Popup>
   </div>
 </template>
