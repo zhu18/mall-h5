@@ -28,7 +28,7 @@
       class="banner-box"
       :style="{ backgroundImage: 'linear-gradient(195deg,'+curentBannerColor[0]+' 4%, '+curentBannerColor[1]+' 100%)' }"
     >
-      <Swipe :autoplay="3000" class="banner-swiper" @change="onSwiperChange" ref='swiper' >
+      <Swipe  class="banner-swiper" @change="onSwiperChange" ref='swiper' >
         <SwipeItem v-for="(image, index) in banners" :key="index"><img :src="image.img"  /></SwipeItem>
       </Swipe>
     </div>
@@ -275,7 +275,6 @@ export default {
    },
    mounted() {
       console.log(this.$refs.swiper.$el.offsetWidth);
-
      this.searchHeight=this.$refs.search.offsetHeight
      window.addEventListener('scroll',()=>{this.scrollHeight=window.scrollY})
   },
@@ -391,7 +390,8 @@ export default {
  
     img {
       max-width: 100%;
-      height: 122px;
+      width: 100%;
+      //height: 122px;
       margin:0 
     }
   }
