@@ -11,3 +11,7 @@
     width:10px;
     opacity:1;
   }
+  .van-swipe__indicator:not(:last-child){
+    margin-right: 4px;
+
+  }
