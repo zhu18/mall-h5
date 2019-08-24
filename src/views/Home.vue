@@ -560,6 +560,7 @@ export default {
   }
 }
 .shop-list {
+    padding: 0 12px;
   .list-body-c{
      display: flex;
     flex-wrap: wrap;
@@ -573,7 +574,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     width:100%;
-    padding: 0 12px;
+    // padding: 0 12px;
     box-sizing:border-box;
     .sp-item {
       width: calc(50% - 5px);
@@ -682,5 +683,8 @@ export default {
       border:1px solid transparent;
       /* background:yellow; */
      
+    }
+    .van-sticky--fixed{
+      padding:0 12px;
     }
 </style>
