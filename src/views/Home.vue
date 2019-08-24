@@ -156,10 +156,18 @@
       </TabbarItem>
     </Tabbar>
     </div>
+    <Popup
+      v-model="popupFlag"
+      position="left"
+      :style="{ height: '100%',width: '100%'  }"
+    >
+    <searchComponent :serchStyle='serchStyle' @out='searchOut'/>
+    </Popup>
   </div>
 </template>
 
 <script>
+
 import {
   Tabbar,
   TabbarItem,
@@ -169,14 +177,17 @@ import {
   SwipeItem,
   Tab,
   Tabs,
-  List
+  List,
+  Popup
 } from "vant";
+import searchComponent from '../components/searchComponent.vue';
 import banner1 from "../assets/images/demo/banner1.png";
 import banner2 from "../assets/images/demo/banner2.png";
 export default {
   name: "home",
   data() {
     return {
+      popupFlag:false,
       scrollHeight:0,
       searchHeight:0,
       active: 0,
@@ -229,8 +240,12 @@ export default {
     onSwiperChange(e) {
       this.bannerIndex = e;
     },
+    searchOut(){
+      this.popupFlag=false
+    },
     onFocus() {
       this.focusflag = true;
+      this.popupFlag = true;
     },
     onLoad() {
       // 异步更新数据
@@ -273,7 +288,9 @@ export default {
     Tab,
     Tabs,
     SwipeItem,
-    List
+    List,
+    Popup,
+    searchComponent
   }
 };
 </script>
