@@ -524,7 +524,7 @@ export default {
       .name {
         font-size: 12px;
         color: #323232;
-        text-align: justify;
+        // text-align: justify;
         line-height: 17px;
         height:34px;
         overflow: hidden;
@@ -554,15 +554,17 @@ export default {
       .img {
         width: 100%;
         height: 140px;
-        border: 1px solid #eeeeee;
+        border:1px solid #eeeeee;
         border-radius: 10px;
         box-sizing: border-box;
         margin-bottom:7px;
         overflow: hidden;
+
         img {
           width: 100%;
           height: 100%;
-          border-radius: 10px;
+          border:none;
+          display: block;
         }
       }
     }
