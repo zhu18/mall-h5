@@ -99,9 +99,9 @@
               >
             <div class="sp-item" v-for="i in list" :key="i">
               <span class="img">
-                <img src="../assets/images/demo/sp2.webp" alt class />
+                <img src="../assets/images/demo/sp2.jpg" alt class />
               </span>
-              <span class="name">Apple iMac 21.5英寸一体机四核 Core i5 处理器/8GB/</span>
+              <span class="name">Apple iMac 21.5英寸一体机四核 Core i5 处理器</span>
               <span class="price">
                 <var class="discount-price">¥9998.00</var>
                 <var class="original-price">¥12998</var>
@@ -586,6 +586,7 @@ export default {
         }
       }
       .img {
+        // @include border-1px(#eeeeee);
         width: 100%;
         height: 140px;
         border:1px solid #eeeeee;
